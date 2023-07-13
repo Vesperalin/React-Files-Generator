@@ -1,0 +1,62 @@
+{
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"root": true,
+	"extends": [
+		"eslint:recommended",
+		"airbnb-typescript",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"plugin:prettier/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript"
+	],
+	"parser": "@typescript-eslint/parser",
+	"ignorePatterns": ["webpack.config.js"],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module",
+		"tsconfigRootDir": ".",
+		"project": ["./tsconfig.json"]
+	},
+	"plugins": ["react", "@typescript-eslint", "import"],
+	"settings": {
+		"import/resolver": "webpack"
+	},
+	"rules": {
+		"linebreak-style": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				"printWidth": 80,
+				"endOfLine": "lf",
+				"singleQuote": true,
+				"tabWidth": 2,
+				"indentStyle": "space",
+				"useTabs": true,
+				"trailingComma": "es5"
+			}
+		],
+		"@typescript-eslint/no-explicit-any": "warn",
+		"@typescript-eslint/no-misused-promises": "off",
+		"@typescript-eslint/lines-between-class-members": "off",
+		"@typescript-eslint/ban-types": [
+			"error",
+			{
+				"extendDefaults": true,
+				"types": {
+					"{}": false
+				}
+			}
+		],
+		"react-hooks/exhaustive-deps": "off",
+		"object-shorthand": "error",
+		"no-console": "warn"
+	}
+}
