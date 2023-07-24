@@ -3,21 +3,45 @@
   "displayName": "React Files Generator",
   "description": "",
   "version": "0.0.1",
+  "publisher": "vscode-samples",
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:react-files-generator.createFolderWithFiles",
+    "onCommand:react-files-generator.test"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "react-files-generator.helloWorld",
-        "title": "Hello World"
+        "when": "explorerResourceIsFolder",
+        "command": "react-files-generator.createFolderWithFiles",
+        "group": "bookmarks",
+        "title": "Create files"
+      },
+      {
+        "command": "react-files-generator.test",
+        "group": "bookmarks",
+        "title": "Test"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "react-files-generator.createFullSetOfFiles",
+          "group": "bookmarks",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "react-files-generator.test",
+          "group": "bookmarks"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -37,6 +61,12 @@
     "@types/node": "20.2.5",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint": "^8.41.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
