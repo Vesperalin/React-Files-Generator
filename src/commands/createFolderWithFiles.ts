@@ -1,16 +1,27 @@
-import * as vscode from "vscode";
-import { getWorkspaceUri } from "helpers";
+// import * as vscode from "vscode";
+import { getTextFromPrompt, getWorkspaceUri, showError } from "helpers";
 import { RegisterCommandCallbackArgs } from "types";
+import { FileSystem } from "classes";
 
 export const createFolderWithFiles = async (
   args: RegisterCommandCallbackArgs
 ) => {
+  const name = await getTextFromPrompt(
+    "Enter the name of folder to create",
+    "Enter name"
+  );
   const workspaceUri = await getWorkspaceUri();
-  console.log(workspaceUri);
-  console.log(args);
+  const path = args ? args.path : workspaceUri?.path;
 
-  // vscode.workspace.updateWorkspaceFolders(1, undefined, {
-  //   uri: vscode.Uri.parse("/extension_test"),
-  //   name: "New Folder",
-  // });
+  if (path) {
+    if (name) {
+      const fileSystem = new FileSystem(path, name);
+
+      fileSystem.createFolder();
+    } else {
+      showError("Error occured while getting folder name");
+    }
+  } else {
+    showError("Can not detect folder path");
+  }
 };

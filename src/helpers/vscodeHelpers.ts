@@ -23,22 +23,13 @@ export const getWorkspaceUri = async () => {
 
 export const getTextFromPrompt = async (
   text: string,
-  placeholderText: string | undefined,
-  errorText: string | undefined
+  placeholderText: string | undefined
 ) => {
   const inputValue = await window.showInputBox({
     ignoreFocusOut: true,
     prompt: text,
     ...(placeholderText && { placeHolder: placeholderText }),
   });
-
-  if (!inputValue) {
-    if (errorText) {
-      showError(errorText);
-    } else {
-      showError("Cancelled due to an error");
-    }
-  }
 
   return inputValue;
 };
