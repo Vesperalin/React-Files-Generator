@@ -1,20 +1,44 @@
-import * as vscode from "vscode";
+import { window, workspace } from "vscode";
 
 export const showError = (message: string) => {
-  vscode.window.showErrorMessage(message);
+  window.showErrorMessage(message);
 };
 
 export const showInfo = (message: string) => {
-  vscode.window.showInformationMessage(message);
+  window.showInformationMessage(message);
 };
 
 export const getWorkspaceUri = async () => {
-  if ((vscode.workspace.workspaceFolders?.length || 0) > 1) {
+  const { workspaceFolders } = workspace;
+
+  if ((workspaceFolders?.length || 0) > 1) {
     return (
-      await vscode.window.showWorkspaceFolderPick({
+      await window.showWorkspaceFolderPick({
         placeHolder: "Select Workspace in which you want to create the folder",
       })
     )?.uri;
   }
-  return vscode.workspace.workspaceFolders?.[0]?.uri;
+  return workspaceFolders?.[0]?.uri;
+};
+
+export const getTextFromPrompt = async (
+  text: string,
+  placeholderText: string | undefined,
+  errorText: string | undefined
+) => {
+  const inputValue = await window.showInputBox({
+    ignoreFocusOut: true,
+    prompt: text,
+    ...(placeholderText && { placeHolder: placeholderText }),
+  });
+
+  if (!inputValue) {
+    if (errorText) {
+      showError(errorText);
+    } else {
+      showError("Cancelled due to an error");
+    }
+  }
+
+  return inputValue;
 };
