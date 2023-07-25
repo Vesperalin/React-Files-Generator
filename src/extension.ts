@@ -7,13 +7,5 @@ export function activate(context: vscode.ExtensionContext) {
     createFolderWithFiles
   );
 
-  const test = vscode.commands.registerCommand(
-    "react-files-generator.test",
-    () => {
-      vscode.window.showInformationMessage("Test");
-    }
-  );
-
   context.subscriptions.push(createFolderWithFilesCommand);
-  context.subscriptions.push(test);
 }
