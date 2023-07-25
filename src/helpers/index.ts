@@ -1,1 +1,1 @@
-export { showError, showInfo, getWorkspaceUri } from "./vscodeHelpers";
+export * from "./vscodeHelpers";
