@@ -5,5 +5,4 @@ node_modules
 *.vsix
 .vscode
 .DS_Store
-yarn-error.log
 .eslintcache
