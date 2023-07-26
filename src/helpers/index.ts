@@ -1,1 +1,1 @@
-export * from "./vscodeHelpers";
+export * from './vscodeHelpers';

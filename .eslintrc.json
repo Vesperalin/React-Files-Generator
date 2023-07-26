@@ -1,100 +1,67 @@
 {
+  "env": {
+    "browser": true,
+    "es6": true
+  },
   "root": true,
   "extends": [
-    "airbnb-base",
+    "eslint:recommended",
+    "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
-    "plugin:testing-library/react"
+    "plugin:import/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "tsconfigRootDir": ".",
+    "project": ["./tsconfig.json"]
   },
   "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    },
     "react": {
       "version": "detect"
     }
   },
-  "plugins": [
-    "@typescript-eslint",
-    "jsx-a11y",
-    "react",
-    "react-hooks",
-    "prettier",
-    "import",
-    "testing-library"
-  ],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "no-param-reassign": 0,
-    "no-use-before-define": 0,
-    "react/jsx-filename-extension": [
-      1,
-      { "extensions": [".ts", ".tsx", ".js", ".jsx"] }
-    ],
-    "import/extensions": 0,
-    "import/no-unresolved": 0,
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      { "args": "all", "argsIgnorePattern": "^_", "ignoreRestSiblings": true }
-    ],
-    "no-unused-expressions": ["error", { "allowTernary": true }],
-    "arrow-body-style": ["warn", "as-needed"],
-    "import/order": [
+    "linebreak-style": "off",
+    // Configure prettier
+    "prettier/prettier": [
       "error",
       {
-        "alphabetize": {
-          "caseInsensitive": true,
-          "order": "asc"
-        },
-        "pathGroupsExcludedImportTypes": ["builtin"],
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "react",
-            "group": "external",
-            "position": "before"
-          },
-          { "pattern": "commands/**", "group": "internal" },
-          { "pattern": "helpers/**", "group": "internal" },
-          { "pattern": "types/**", "group": "internal" }
-        ]
+        "printWidth": 80,
+        "endOfLine": "lf",
+        "singleQuote": true,
+        "tabWidth": 2,
+        "indentStyle": "space",
+        "useTabs": true,
+        "trailingComma": "es5"
       }
     ],
-    "react/prop-types": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": 0,
-    "import/prefer-default-export": "off",
-    "import/no-default-export": "error",
-    "camelcase": "off",
-    "no-underscore-dangle": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
-    "prefer-regex-literals": 0,
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": "error",
-    "testing-library/prefer-presence-queries": 0,
-    "testing-library/no-render-in-setup": 0,
-    "testing-library/no-unnecessary-act": 0
-  },
-  "ignorePatterns": ["out", "dist", "**/*.d.ts"]
+    // Disallow the `any` type.
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "extendDefaults": true,
+        "types": {
+          "{}": false
+        }
+      }
+    ],
+    "react-hooks/exhaustive-deps": "off",
+    // Enforce the use of the shorthand syntax.
+    "object-shorthand": "error",
+    "no-console": "warn"
+  }
 }

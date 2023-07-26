@@ -1,1 +1,1 @@
-export * from "./createFolderWithFiles";
+export * from './createFolderWithFiles';
