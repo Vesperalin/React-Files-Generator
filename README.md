@@ -46,7 +46,7 @@ Implement basic version of extension which creates given files:
 
 ## Contributors
 
-- Klaudia Błayczek (blazyczek.klaudia@gmail.com)
+- Klaudia Błażyczek (blazyczek.klaudia@gmail.com)
 
 ## Repository
 
