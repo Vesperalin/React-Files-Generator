@@ -2,7 +2,7 @@
 
 All notable changes to the "react-files-generator" extension will be documented in this file.
 
-## [0.0.1] - 2023-07-26
+## [0.0.1] - 2023-07-27
 
 ### Added
 

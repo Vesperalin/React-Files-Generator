@@ -8,7 +8,8 @@
 		"vscode": "^1.80.0"
 	},
 	"categories": [
-		"Other"
+		"Other",
+		"Programming Languages"
 	],
 	"activationEvents": [
 		"onCommand:react-files-generator.createFolderWithFiles"
