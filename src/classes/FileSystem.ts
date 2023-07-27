@@ -3,7 +3,6 @@ import { showError } from 'helpers';
 
 export class FileSystem {
 	path: string;
-
 	name: string;
 
 	static DEFAULT_FILES_SCHEMA = [
@@ -35,7 +34,6 @@ export class FileSystem {
 				const filePath = `${this.path}/${this.name}/${fileName}`;
 
 				if (!existsSync(filePath)) {
-					// eslint-disable-next-line @typescript-eslint/no-misused-promises
 					appendFile(filePath, '', async (err) => {
 						if (err) {
 							await showError(`Failed to create ${fileName}`);

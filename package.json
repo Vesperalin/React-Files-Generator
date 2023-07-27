@@ -44,7 +44,7 @@
 		"pretest": "npm run compile-tests && npm run compile && npm run lint",
 		"lint": "tsc --noEmit && eslint src/**/*.ts --cache --max-warnings=0",
 		"lint:fix": "eslint src/**/*.ts --fix",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.ts"
 	},
 	"devDependencies": {
 		"@types/glob": "^8.1.0",
@@ -53,7 +53,6 @@
 		"@types/vscode": "^1.80.0",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
-		"@vscode/test-electron": "^2.3.3",
 		"eslint": "^8.45.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-airbnb-base": "^15.0.0",
@@ -62,15 +61,16 @@
 		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-prettier": "^5.0.0",
-		"glob": "^8.1.0",
-		"mocha": "^10.2.0",
 		"ts-loader": "^9.4.4",
 		"typescript": "^5.1.6",
 		"webpack": "^5.88.2",
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
+		"@vscode/test-electron": "^2.3.3",
 		"eslint-import-resolver-webpack": "^0.13.2",
-		"fs": "^0.0.1-security"
+		"fs": "^0.0.1-security",
+		"glob": "^8.1.0",
+		"mocha": "^10.2.0"
 	}
 }
