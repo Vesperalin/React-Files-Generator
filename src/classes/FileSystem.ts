@@ -3,6 +3,7 @@ import { showError } from 'helpers';
 
 export class FileSystem {
 	path: string;
+
 	name: string;
 
 	static DEFAULT_FILES_SCHEMA = [
@@ -18,11 +19,11 @@ export class FileSystem {
 		this.name = name;
 	}
 
-	createFolder() {
+	async createFolder() {
 		if (!existsSync(`${this.path}/${this.name}`)) {
 			mkdirSync(`${this.path}/${this.name}`);
 		} else {
-			showError('Folder already exists');
+			await showError('Folder already exists');
 		}
 	}
 
@@ -34,9 +35,10 @@ export class FileSystem {
 				const filePath = `${this.path}/${this.name}/${fileName}`;
 
 				if (!existsSync(filePath)) {
-					appendFile(filePath, '', (err) => {
+					// eslint-disable-next-line @typescript-eslint/no-misused-promises
+					appendFile(filePath, '', async (err) => {
 						if (err) {
-							showError(`Failed to create ${fileName}`);
+							await showError(`Failed to create ${fileName}`);
 						}
 					});
 				}

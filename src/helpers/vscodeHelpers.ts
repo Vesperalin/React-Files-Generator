@@ -1,11 +1,11 @@
 import { window, workspace } from 'vscode';
 
-export const showError = (message: string) => {
-	window.showErrorMessage(message);
+export const showError = async (message: string) => {
+	await window.showErrorMessage(message);
 };
 
-export const showInfo = (message: string) => {
-	window.showInformationMessage(message);
+export const showInfo = async (message: string) => {
+	await window.showInformationMessage(message);
 };
 
 export const getWorkspaceUri = async () => {

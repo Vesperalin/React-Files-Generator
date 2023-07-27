@@ -16,12 +16,12 @@ export const createFolderWithFiles = async (
 		if (name) {
 			const fileSystem = new FileSystem(path, name);
 
-			fileSystem.createFolder();
+			await fileSystem.createFolder();
 			fileSystem.createFiles();
 		} else {
-			showError('Error occured while getting folder name');
+			await showError('Error occured while getting folder name');
 		}
 	} else {
-		showError('Can not detect folder path');
+		await showError('Can not detect folder path');
 	}
 };
