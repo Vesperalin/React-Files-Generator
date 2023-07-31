@@ -17,6 +17,7 @@ All notable changes to the "react-files-generator" extension will be documented 
 
 ## Planned updates
 
+- Add integration tests
 - Define second option to create full set of files
 - Defining basic initial code in files
 - Ability to define own file schema

@@ -44,7 +44,7 @@
 		"pretest": "npm run compile-tests && npm run compile && npm run lint",
 		"lint": "tsc --noEmit && eslint src/**/*.ts --cache --max-warnings=0",
 		"lint:fix": "eslint src/**/*.ts --fix",
-		"test": "node ./out/test/runTest.ts"
+		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
 		"@types/glob": "^8.1.0",
