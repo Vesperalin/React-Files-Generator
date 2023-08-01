@@ -3,7 +3,7 @@
 	"displayName": "React Files Generator",
 	"description": "",
 	"version": "0.0.1",
-	"publisher": "Klaudia Błażyczek",
+	"publisher": "KlaudiaBayczek",
 	"engines": {
 		"vscode": "^1.80.0"
 	},
